@@ -7,24 +7,18 @@ public class PoorlyWrittenExample {
         System.out.println(result);
     }
 
-    // 一个差劲的字符串处理方法
+    // 一个优化的字符串处理方法
     public static String processString(String input) {
-        // 使用过多的临时变量
-        String temp1 = input;
-        String temp2 = temp1.toLowerCase();
-        String temp3 = temp2.trim();
-
-        // 不必要的循环
-        StringBuilder result = new StringBuilder();
-        for (int i = 0; i < temp3.length(); i++) {
-            char c = temp3.charAt(i);
-            if (c != ' ') {
-                result.append(c);
-            }
+        // 检查输入是否为空
+        if (input == null || input.isEmpty()) {
+            return "Input is empty.";
         }
 
-        // 使用过时的模式匹配
-        if (result.toString().matches(".*hello.*")) {
+        // 转换为小写并去除空格
+        String processedInput = input.toLowerCase().trim();
+
+        // 检查是否包含 "hello"
+        if (processedInput.contains("hello")) {
             return "Found hello!";
         } else {
             return "No hello found.";
